@@ -25,9 +25,21 @@ public class Status {
     {
     Scanner in =new Scanner(System.in);
     System.out.println("Enter the user status code (zero,one,two,three) in string");
-    String code = in.next();
+    try{
+    String code = in.next().toUpperCase();
+    StatusCode sc = StatusCode.valueOf(code);
     StausUser t= new StausUser();
-    t.statusDetail(code); 
-    }
+    t.statusDetail(sc); 
+    }catch(IllegalArgumentException e){
+        System.out.println("Enter Either one two three or four");
+        
+    }finally{
     
+    in.close();
+    }
+    }
 }
+    
+    
+
+    
